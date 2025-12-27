@@ -9,9 +9,7 @@
 #     customer_service = CustomerService()
 #     transaction_service = TransactionService()
 
-#     # ----------------------------
-#     # 1️⃣ Add multiple customers
-#     # ----------------------------
+#     
 #     customers = [
 #         # Customer("Abhimanyu Singh","Meerut",'7983536144',"abhimanyu01","password123","abhi@gmail.com"),
 #         # Customer("Rahul Kumar","Jaipur",'987456754',"Rahul887","85874Pass","rAhul877@gmail.com"),
@@ -131,29 +129,3 @@
 
 
 
-
-
-
-from bank.services.loan_service import LoanService
-from bank.models.loan import Loan
-from datetime import date
-
-def main():
-    loan_service = LoanService()
-
-    # ✅ Example customer_ids (must come from DB earlier)
-    customer_ids = [1]  # replace with real IDs from customer creation
-
-    loan = Loan(
-        customer_id=customer_ids[0],
-        loan_amount=90000,
-        interest_rate=8.5,
-        start_date=date.today(),
-        end_date=date(2035, 12, 31)
-    )
-
-    loan_service.create_loan(loan)
-    print("Loan Created Successfully")
-
-if __name__ == "__main__":
-    main()
